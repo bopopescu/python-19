@@ -8,8 +8,8 @@
 #---------------------------------------------------------
 
 Table of content:
+hw1.instructions
 hw1.kester.py
-hw1.assignment
 README
 
 Special instructions:
