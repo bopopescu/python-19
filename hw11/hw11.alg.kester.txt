@@ -1,0 +1,33 @@
+#---------------------------------------------------------
+# April Dawn Kester
+# akester@ischool.berkeley.edu
+# Homework #11 WOOT!!!
+# November 24, 2014
+# Functional programming
+#---------------------------------------------------------
+
+1. This algorithm reads in the text file
+
+2. Each line is read and each numerical string is mapped to an int in a list corresponding to the rows of the triangle
+
+3. maxPath is called on this list, which iterates n-1 times, n being the number of rows.
+        a. The first iteration applies max(x, y)+ z creating a new smaller triangle
+        b. this continues until there is one number left which is the solution
+
+Using our example from thee homework
+	2
+	6 3
+	1 3 5
+	7 4 8 2
+
+i.	2
+	6 3
+	8 11 13
+
+ii. 	2
+	17 16
+
+iii.	19
+
+
+4. All values are stored to a global string and output with the total at the end

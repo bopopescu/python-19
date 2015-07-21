@@ -1,0 +1,17 @@
+#---------------------------------------------------------
+# April Dawn Kester
+# akester@ischool.berkeley.edu
+# Homework #8
+# October 30, 2014
+# Encryption 
+#---------------------------------------------------------
+
+Not a whole lot appears to have changed since Tygar wrote “Why Johny Can’t Encrypt” in 1999.  Sure, many superficial changes have been made to the PGP UI that were mentioned in the paper, such as redesigning icon images, differentiating public and private keys.  They have cleaned up ambiguous or misleading verbiage.  They have also implemented some safeguards to prevent significant user errors.  Also, the user guides and help forums are much improved since 1999.  However, I think that if the same experiments from the paper were run on the current version of PGP,  we would see only minor improvement.  
+
+None of these changes really address the “problematic properties of security” as mentioned in the paper.  People are still unmotivated to use encryption even when they know they should.  Even people that use PGP don’t seem to really understand how it works (read the PGP forums).  
+
+Perhaps we are going about this the wrong way.  In academia the focus is always on teaching, helping people learn how something works and why it’s important.  However, with many types of technology people don’t care how it works, as long as it works.  We need to make encryption super, super, simple.  Integrate the features into the mail client.  Click one button to encrypt (the software should know if the key needs to be sent), decrypt with one button, verify automatically (send up flags when needed).  Eliminate the need to cut and paste content - completely integrate the features into the mail client by default.  
+
+There are also huge network effects at play, to reach a tipping point where most everyone uses encryption, the service would need to be incredibly accessible to even the most inept user.  You would need the big email providers on board with something like this.  
+
+Another option would be to gameify the process of encryption.  If you really want people to learn how it works - make it fun.  For example, have a tutorial that walks the user through a spy game scenario.

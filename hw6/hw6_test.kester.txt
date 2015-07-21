@@ -1,0 +1,165 @@
+#---------------------------------------------------------
+# April Dawn Kester
+# akester@ischool.berkeley.edu
+# Homework #6
+# October 10, 2014
+# SE - test file
+#---------------------------------------------------------
+
+In your write up, please discuss these issues:  What are the boundary cases? What happens if catalog.txt comes in an unexpected format? What happens if a link is broken or the contents come in an unexpected format? etc.  
+
+Boundary cases for file in; empty file, file with too few arguments, file with too many arguments, file titled incorrectly.  Duplicate titles is an issue, but I didn’t solve for it. For URL open; connection timeout, incorrect url, incomplete url.  There is also the possibility of URL mismatch, but I did not solve for that.
+
+I have a try/catch set up if catalog.txt comes in an unexpected format.  Granted I’m being lazy and not really catching anything, just out to the user the error, since my OS could care less about this program. Any file named incorrectly will throw IOError.  I also have it set up to exit if the lines in the file are not formatted as expected.  It’s rudimentary, some corner cases will make it through - such as two items on each line separated by a comma that are complete gibberish won’t exit the program.
+
+That case would be caught by the try/catch for urllib2 which will throw an exception for ValueError or URLError  (I believe that includes socket or timeout error).  Again this will exit the program and just out to the user the error.
+
+As usual I wrote each phase independently and tested functionality, especially for phase two this allowed me to test for logical errors (which there were many) before testing the entire program.  For user input I decided to strip words of punctuation and change to lower case so there was no confusion about the word we were looking for.
+
+For tests on the entire program I ran some of the files through the BST I wrote for HW5 to compare word counts.  See following. 
+
+Test 1:
+
+Pride and Prejudice,http://people.ischool.berkeley.edu/~tygar/for.i206/pg1342.txt
+Aprils-MacBook-Air:hw5 akester$ python hw5.kester.py
+Enter the file name to read:
+> test_file.txt
+Query?
+and
+The word  and  appears  3602  times in the tree
+Query?
+to
+The word  to  appears  4207  times in the tree
+Query?
+cow
+Word Not Found
+Query?
+be
+The word  be  appears  1257  times in the tree
+Query?
+hello
+Word Not Found
+Query?
+a
+The word  a  appears  1997  times in the tree
+Query?
+
+Word Not Found
+Query?
+
+Test 2:
+
+The Yellow Wallpaper,http://people.ischool.berkeley.edu/~tygar/for.i206/pg1952.txt
+Aprils-MacBook-Air:hw5 akester$ python hw5.kester.py
+Enter the file name to read:
+> text2.txt
+Query?
+and
+The word  and  appears  354  times in the tree
+Query?
+to
+The word  to  appears  221  times in the tree
+Query?
+cow
+Word Not Found
+Query?
+be
+The word  be  appears  50  times in the tree
+Query?
+hello
+Word Not Found
+Query?
+a
+The word  a  appears  198  times in the tree
+Query?
+
+Word Not Found
+Query?
+
+Test 3
+
+Aprils-MacBook-Air:Python akester$ python hw6.kester.py
+Query?
+and
+[3602, 354, 0, 0, 0]
+Query?
+to
+[4207, 221, 0, 0, 0]
+Query?
+cow
+Word not found
+Query?
+be
+[1257, 50, 0, 0, 0]
+Query?
+a
+[1997, 198, 0, 0, 0]
+Query?
+
+Word not found
+Query?
+
+Test 4
+Aprils-MacBook-Air:Python akester$ python hw6.kester.py
+Query?
+and
+1 . The word and appears 3602 times in ('Pride and Prejudice', 
+2 . The word and appears 912 times in ("Alice's Adventures in Wonderland", 
+3 . The word and appears 354 times in ('The Yellow Wallpaper', 
+4 . The word and appears 6139 times in ('The Adventures of Huckleberry Finn', 
+5 . The word and appears 881 times in ('Beowulf', 
+6 . The word and appears 3070 times in ('The Adventures of Sherlock Holmes', 
+7 . The word and appears 1935 times in ('The Prince', 
+8 . The word and appears 711 times in ('Metamorphosis', 
+9 . The word and appears 14877 times in ('Les Miserables', 
+10 . The word and appears 3075 times in ('The Adventures of Tom Sawyer', 
+Query?
+the
+1 . The word the appears 4495 times in ('Pride and Prejudice', 
+2 . The word the appears 1804 times in ("Alice's Adventures in Wonderland",
+3 . The word the appears 414 times in ('The Yellow Wallpaper', 
+4 . The word the appears 4898 times in ('The Adventures of Huckleberry Finn',
+5 . The word the appears 3292 times in ('Beowulf', 
+6 . The word the appears 5798 times in ('The Adventures of Sherlock Holmes', pg1661.txt')
+7 . The word the appears 3108 times in ('The Prince', 
+8 . The word the appears 1330 times in ('Metamorphosis', 
+9 . The word the appears 40845 times in ('Les Miserables',
+10 . The word the appears 3927 times in ('The Adventures of Tom Sawyer', 
+Query?
+to
+1 . The word to appears 4207 times in ('Pride and Prejudice', 
+2 . The word to appears 801 times in ("Alice's Adventures in Wonderland", 
+3 . The word to appears 221 times in ('The Yellow Wallpaper', 
+4 . The word to appears 2994 times in ('The Adventures of Huckleberry Finn',
+5 . The word to appears 1082 times in ('Beowulf', 
+6 . The word to appears 2761 times in ('The Adventures of Sherlock Holmes', 
+7 . The word to appears 2107 times in ('The Prince', 
+8 . The word to appears 833 times in ('Metamorphosis',
+9 . The word to appears 13705 times in ('Les Miserables', 
+10 . The word to appears 1793 times in ('The Adventures of Tom Sawyer', 
+Query?
+Finn
+1 . The word finn appears 26 times in ('The Adventures of Huckleberry Finn', 
+2 . The word finn appears 20 times in ('Beowulf', 
+3 . The word finn appears 16 times in ('The Adventures of Tom Sawyer', 
+Query?
+daughters
+1 . The word daughters appears 57 times in ('Pride and Prejudice', 
+2 . The word daughters appears 2 times in ('The Adventures of Huckleberry Finn', 
+3 . The word daughters appears 40 times in ('Les Miserables', 
+Query?
+hello
+1 . The word hello appears 8 times in ('The Adventures of Huckleberry Finn', 
+2 . The word hello appears 3 times in ('Les Miserables', 
+3 . The word hello appears 6 times in ('The Adventures of Tom Sawyer', 
+Query?
+grub
+1 . The word grub appears 1 time in ('The Adventures of Huckleberry Finn', 
+2 . The word grub appears 3 times in ('Les Miserables', 
+3 . The word grub appears 1 time in ('The Adventures of Tom Sawyer',
+Query?
+bam
+The word bam does not appear in any book in the library
+
+
+

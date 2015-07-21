@@ -1,0 +1,33 @@
+#---------------------------------------------------------
+# April Dawn Kester
+# akester@ischool.berkeley.edu
+# Homework #5
+# October 1, 2014
+# README
+#---------------------------------------------------------
+
+Make sure to download additional files
+
+BST.py 
+BSTclient.py
+
+Sorry, python seems to be picky about naming conventions for import files
+I have numerous test files that I am not uploading, they are briefly described in BSTclient
+
+(1)  For the file http://www.gutenberg.org/ebooks/1342.txt.utf-8, what is the depth of your tree?  What does that say about the number of operations to find a word?
+
+Depth 28.  At worst case, to find a word we would have to search from the root to the leaf farthest from the root, which would be the depth/height.  On average trees with n nodes have O(log n) depth/height, worst case as described in Q2 would have O(n) depth/height.
+
+(2)  What would happen if the input to your program were sorted (as it was in HW 2)?
+
+Sorted input is actually very bad for a BST.  This would be worst case scenario for a BST O(n^2) because it would be a linked list with no left subtrees.  A self balancing tree worst case would be O(blog n).
+
+(3)  What are applications for binary search tree?  In what ways are they superior to lists?  In what ways are they inferior to lists?
+
+Sorting and search algorithms can be very efficient (especially in a balanced tree), attributes are stored in a way that make adding and deleting very efficient (one operation to change the pointer). As opposed to an array/list where data has to be copied and moved to delete and add.  They are dynamic as opposed to an array/list that is fixed in size and memory. The shape of a tree depends on the order of insertions, with sorted input for example, the tree becomes less efficient.  Each key has to be compared adding to run time.   In a BST random access is not allowed and to search we must traverse the entire tree as opposed to a list/array which is indexed.  
+
+
+(4)  Did you implement the extra credit (listed below)?  If so please explain your testing strategy on the extra credit.
+Nope
+
+

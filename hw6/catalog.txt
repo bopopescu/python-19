@@ -1,0 +1,2 @@
+Pride and Prejudice,http://people.ischool.berkeley.edu/~tygar/for.i206/pg1342.txt
+Alice's Adventures in Wonderland,http://people.ischool.berkeley.edu/~tygar/for.i206/pg11.txt

@@ -1,0 +1,17 @@
+application: i206-hw4-kester
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+# [START handlers]
+handlers:
+- url: /.*
+  script: hw4_pwchecker_kester.application
+# [END handlers]
+
+# [START libraries]
+libraries:
+- name: webapp2
+  version: latest
+# [END libraries]
