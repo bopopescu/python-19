@@ -41,6 +41,12 @@ class BSTree:
 
     def height(self):
         return _height(self.root)
+    
+    # def height(self):
+    #     if not self.root:
+    #         return "This tree is empty"
+    #     else:    
+    #         return _height(self.root)
 
 
 #Function to add node with word as word attribute

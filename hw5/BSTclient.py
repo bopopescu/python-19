@@ -7,7 +7,7 @@
 #---------------------------------------------------------
 
 from BST import *
-from hw5.kester import *
+from hw5kester import *
 
 
 ##On final test of file, carage return is being added to word count >.<
@@ -86,7 +86,13 @@ from hw5.kester import *
 #print Needle.word
 #print Needle.count
 #
+#print T.size()
 #print T.height()
+
+# test = "you&&*^areSupergreat876mnH"
+# print test
+# print stripItAll(test)
+
 
 
 
