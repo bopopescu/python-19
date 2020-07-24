@@ -247,7 +247,7 @@ class JobFlowInspectionTestCase(MockEMRAndS3TestCase):
                     MockEmrObject(
                         value='pool-0123456789abcdef0123456789abcdef'),
                     MockEmrObject(value='reflecting'),
-                ], name='master'),
+                ], name='main'),
             ],
             creationdatetime=to_iso8601(self.now - timedelta(hours=1)),
             readydatetime=to_iso8601(self.now - timedelta(minutes=50)),

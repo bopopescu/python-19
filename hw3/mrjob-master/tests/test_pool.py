@@ -118,7 +118,7 @@ class TestPoolHashAndName(unittest.TestCase):
                     MockEmrObject(
                         value='pool-0123456789abcdef0123456789abcdef'),
                     MockEmrObject(value='reflecting'),
-                ], name='master'),
+                ], name='main'),
             ])
 
         self.assertEqual(pool_hash_and_name(jf),
@@ -133,14 +133,14 @@ class TestPoolHashAndName(unittest.TestCase):
                     MockEmrObject(
                         value='pool-0123456789abcdef0123456789abcdef'),
                     MockEmrObject(value='reflecting'),
-                ], name='master'),
+                ], name='main'),
             ])
 
         self.assertEqual(pool_hash_and_name(jf),
                          ('0123456789abcdef0123456789abcdef', 'reflecting'))
 
     def test_pooled_job_flow_with_max_hours_idle(self):
-        # max hours idle is added AFTER the master bootstrap script,
+        # max hours idle is added AFTER the main bootstrap script,
         # which was a problem when we just look at the last action
         jf = MockEmrObject(
             bootstrapactions=[
@@ -148,7 +148,7 @@ class TestPoolHashAndName(unittest.TestCase):
                     MockEmrObject(
                         value='pool-0123456789abcdef0123456789abcdef'),
                     MockEmrObject(value='reflecting'),
-                ], name='master'),
+                ], name='main'),
                 MockEmrObject(args=[
                     MockEmrObject(value='900'),
                     MockEmrObject(value='300'),
@@ -164,7 +164,7 @@ class TestPoolHashAndName(unittest.TestCase):
                 MockEmrObject(args=[
                     MockEmrObject(value='cowsay'),
                     MockEmrObject(value='mrjob'),
-                ], name='master'),
+                ], name='main'),
             ])
 
         self.assertEqual(pool_hash_and_name(jf), (None, None))
@@ -176,7 +176,7 @@ class TestPoolHashAndName(unittest.TestCase):
                     MockEmrObject(value='cowsay'),
                     MockEmrObject(value='-b'),
                     MockEmrObject(value='mrjob'),
-                ], name='master'),
+                ], name='main'),
             ])
 
         self.assertEqual(pool_hash_and_name(jf), (None, None))
@@ -187,12 +187,12 @@ class TestPoolHashAndName(unittest.TestCase):
                 MockEmrObject(args=[
                     MockEmrObject(
                         value='pool-0123456789abcdef0123456789abcdef'),
-                ], name='master'),
+                ], name='main'),
             ])
 
         self.assertEqual(pool_hash_and_name(jf), (None, None))
 
-    def test_bootstrap_action_isnt_named_master(self):
+    def test_bootstrap_action_isnt_named_main(self):
         jf = MockEmrObject(
             bootstrapactions=[
                 MockEmrObject(args=[
